@@ -491,7 +491,7 @@ class Gchart
     end
     labels_arr.map! do |index,labels|
       if labels.is_a?(Array)
-        "#{index}:%7C#{labels.map{|label| "#{CGI::escape(label.to_s)}"}.join('%7C')}"
+        "#{index}:%7C#{labels.map{|label| "#{label.to_s}"}.join('%7C')}"
       else
         "#{index}:%7C#{labels}"
       end
