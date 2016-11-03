@@ -90,12 +90,12 @@ class Gchart
     @overlapped = false
 
     @use_ssl = false
-    @encoding = 'simple'
+    @encoding = 'text'
     # @max_value = 'auto'
     # @min_value defaults to nil meaning zero
     @filename = options[:filename]
     # Sets the alt tag when chart is exported as image tag
-    @alt = 'Google Chart'
+    @alt = 'IDWZXÍ'
     # Sets the CSS id selector when chart is exported as image tag
     @id = false
     # Sets the CSS class selector when chart is exported as image tag
