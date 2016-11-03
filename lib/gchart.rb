@@ -95,7 +95,7 @@ class Gchart
     # @min_value defaults to nil meaning zero
     @filename = options[:filename]
     # Sets the alt tag when chart is exported as image tag
-    @alt = 'IDWZXÍ'
+    @alt = 'IDWZX'
     # Sets the CSS id selector when chart is exported as image tag
     @id = false
     # Sets the CSS class selector when chart is exported as image tag
@@ -491,12 +491,12 @@ class Gchart
     end
     labels_arr.map! do |index,labels|
       if labels.is_a?(Array)
-        "#{index}:|#{labels.map{|label| "#{CGI::escape(label.to_s)}"}.join('|')}"
+        "#{index}:%7C#{labels.map{|label| "#{CGI::escape(label.to_s)}"}.join('%7C')}"
       else
-        "#{index}:|#{labels}"
+        "#{index}:%7C#{labels}"
       end
     end
-    "chxl=#{labels_arr.join('|')}"
+    "chxl=#{labels_arr.join('%7C')}"
   end
 
   # http://code.google.com/apis/chart/labels.html#axis_range
@@ -722,7 +722,8 @@ class Gchart
       end
     end.compact
 
-    query_params << set_axis_range
+    # query_params << set_axis_range
+    query_params << 'chxt=x,y'
 
     # Use ampersand as default delimiter
     unless options == :html
